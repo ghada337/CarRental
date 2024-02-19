@@ -20,20 +20,15 @@ use App\Http\Controllers\MessageController;
         Route::resource('cars', CarController::class);
         Route::resource('users', UserController::class);
         Route::resource('testimonials', TestimonialController::class);
+        Route::resource('messages', MessageController::class);
 
     });
 
+
+
+    Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('messages', MessageController::class);
-
-
-
-
-// Route::get('messages', function () {
-//     return view('admin.messages');
-// })->name('messages');
-// Route::get('showMessages', function () {
-//     return view('admin.showMessages');
-// })->name('showMessages');
+});
 
 
 

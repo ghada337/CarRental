@@ -1,4 +1,3 @@
-<?php use Carbon\Carbon;?>
 <div class="top_nav">
     <div class="nav_menu">
         <div class="nav toggle">
@@ -33,21 +32,17 @@
                     <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
                         data-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-envelope-o"></i>
-                        <span class="badge bg-green">{{$Message->count()}}</span>
+                        <span class="badge bg-green"></span>
                     </a>
                     <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                        @foreach ($Message as $message)
+                        @foreach ($messages as $message)
                         <li class="nav-item">
-                            <a class="dropdown-item" href="{{route('admin.messages.Show',[$message->id])}}">
+                            <a class="dropdown-item" href="{{route('admin.messages.show',[$message->id])}}">
                                 <span class="image"><img src="{{asset('admin/images/img.jpg')}}"
                                         alt="Profile Image" /></span>
                                 <span>
                                     <span>{{$message->firstname}}{{$message->lastname}}</span>
                                     <span class="time">
-                                        {{
-                                        Carbon::parse($message['created_at'])->diffForHumans(Carbon::now())
-                                        }}
-
                                     </span>
                                 </span>
                                 <span class="message">
